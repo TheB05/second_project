@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:5000
+
+### Obtener datos personales
+GET {{baseUrl}}/api/datosPersonales
+Accept: application/json
+
+### Obtener las cinco mascotas
+GET {{baseUrl}}/api/mascotas
+Accept: application/json
