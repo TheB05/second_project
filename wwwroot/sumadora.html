@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sumadora</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/sumadora.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="brand" href="/">Mi aplicación</a>
+            <div class="navigation-links">
+                <a href="/">Datos personales</a>
+                <a href="/mascotas.html">Mascotas</a>
+                <a class="active" href="/sumadora.html" aria-current="page">Sumadora</a>
+            </div>
+        </nav>
+    </header>
+    <main class="page-container">
+        <section class="intro">
+            <p class="eyebrow">API · Sumadora</p>
+            <h1>Sumar dos números</h1>
+            <p>Introduce números enteros, decimales o negativos.</p>
+        </section>
+        <section class="card" aria-labelledby="sum-form-heading">
+            <h2 id="sum-form-heading">Calculadora</h2>
+            <form id="sum-form">
+                <div class="form-fields">
+                    <label for="numero1">Primer número</label>
+                    <input id="numero1" name="numero1" type="number" step="any" required>
+                    <label for="numero2">Segundo número</label>
+                    <input id="numero2" name="numero2" type="number" step="any" required>
+                </div>
+                <button type="submit">Sumar</button>
+            </form>
+            <p id="error-message" class="error-message" role="alert" hidden></p>
+            <p id="result-message" class="result-message" role="status" hidden></p>
+        </section>
+    </main>
+</body>
+</html>

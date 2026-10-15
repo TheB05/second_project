@@ -7,3 +7,21 @@ Accept: application/json
 ### Obtener las cinco mascotas
 GET {{baseUrl}}/api/mascotas
 Accept: application/json
+
+### Sumar dos números
+POST {{baseUrl}}/api/sumadora
+Content-Type: application/json
+
+{
+  "numero1": 5,
+  "numero2": 3.5
+}
+
+### Error 400: el segundo valor no es un número
+POST {{baseUrl}}/api/sumadora
+Content-Type: application/json
+
+{
+  "numero1": 5,
+  "numero2": "no es un número"
+}

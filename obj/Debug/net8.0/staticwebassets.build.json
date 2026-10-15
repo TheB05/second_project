@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cMdycfVlcJpSk8KC0bAWoJbTTbltQ3rOSqLm6Y60Ggs=",
+  "Hash": "RrOUAxwBi6pnUdZVWaO8Y5av95+mGlQUdmdTPCvaMwA=",
   "Source": "second_project",
   "BasePath": "_content/second_project",
   "Mode": "Default",
@@ -93,6 +93,25 @@
       "OriginalItemSpec": "wwwroot\\js\\mascotas.js"
     },
     {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\sumadora.js",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "js/sumadora.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sumadora.js"
+    },
+    {
       "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\mascotas.html",
       "SourceId": "second_project",
       "SourceType": "Discovered",
@@ -110,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mascotas.html"
+    },
+    {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\sumadora.html",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "sumadora.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sumadora.html"
     }
   ]
 }

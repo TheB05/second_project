@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\js\\mascotas.js"
     },
     {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\sumadora.js",
+      "PackagePath": "staticwebassets\\js\\sumadora.js"
+    },
+    {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\mascotas.html",
       "PackagePath": "staticwebassets\\mascotas.html"
+    },
+    {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\sumadora.html",
+      "PackagePath": "staticwebassets\\sumadora.html"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.second_project.props",
