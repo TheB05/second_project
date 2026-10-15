@@ -28,3 +28,5 @@ D:\ITLA\pasantia\second_project\obj\Debug\net8.0\refint\second_project.dll
 D:\ITLA\pasantia\second_project\obj\Debug\net8.0\second_project.pdb
 D:\ITLA\pasantia\second_project\obj\Debug\net8.0\second_project.genruntimeconfig.cache
 D:\ITLA\pasantia\second_project\obj\Debug\net8.0\ref\second_project.dll
+D:\ITLA\pasantia\second_project\obj\Debug\net8.0\second_project.sourcelink.json
+D:\ITLA\pasantia\second_project\bin\Debug\net8.0\second_project.staticwebassets.runtime.json

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de mascotas</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/mascotas.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="brand" href="/">Mi aplicación</a>
+            <div class="navigation-links">
+                <a href="/">Datos personales</a>
+                <a class="active" href="/mascotas.html" aria-current="page">Mascotas</a>
+            </div>
+        </nav>
+    </header>
+    <main class="page-container">
+        <section class="intro">
+            <p class="eyebrow">API · Mascotas</p>
+            <h1>Mis mascotas</h1>
+            <p>La lista se carga desde la API.</p>
+        </section>
+        <section class="card" aria-labelledby="pets-heading">
+            <h2 id="pets-heading">Lista de mascotas</h2>
+            <p id="error-message" class="error-message" role="alert" hidden></p>
+            <p id="loading-message" class="loading-message" role="status">Cargando mascotas...</p>
+            <div id="pets-table-container" class="table-container" hidden>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Raza</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pets-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

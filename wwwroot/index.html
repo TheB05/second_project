@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mis datos personales</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/datos-personales.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="brand" href="/">Mi aplicación</a>
+            <div class="navigation-links">
+                <a class="active" href="/" aria-current="page">Datos personales</a>
+                <a href="/mascotas.html">Mascotas</a>
+            </div>
+        </nav>
+    </header>
+    <main class="page-container">
+        <section class="intro">
+            <p class="eyebrow">API · Datos personales</p>
+            <h1>Mis datos</h1>
+            <p>Esta información se carga desde la API.</p>
+        </section>
+        <section class="card" aria-labelledby="personal-data-heading">
+            <h2 id="personal-data-heading">Información personal</h2>
+            <p id="error-message" class="error-message" role="alert" hidden></p>
+            <p id="loading-message" class="loading-message" role="status">Cargando datos...</p>
+            <dl id="personal-data" class="data-list" hidden>
+                <div>
+                    <dt>Nombre</dt>
+                    <dd id="name"></dd>
+                </div>
+                <div>
+                    <dt>Fecha de nacimiento</dt>
+                    <dd id="birth-date"></dd>
+                </div>
+                <div>
+                    <dt>Dirección</dt>
+                    <dd id="address"></dd>
+                </div>
+            </dl>
+        </section>
+    </main>
+</body>
+</html>

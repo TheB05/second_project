@@ -1,0 +1,170 @@
+:root {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+}
+
+.site-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.navigation {
+    display: flex;
+    max-width: 900px;
+    min-height: 56px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navigation-links {
+    display: flex;
+    gap: 18px;
+}
+
+.navigation-links a {
+    padding: 8px 0;
+    color: #555;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.navigation-links a:hover,
+.navigation-links a.active {
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.page-container {
+    width: min(100% - 32px, 760px);
+    margin: 36px auto;
+}
+
+.intro {
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #666;
+    font-size: 0.82rem;
+}
+
+h1 {
+    margin: 0;
+    color: #222;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.intro > p:last-child {
+    margin: 8px 0 0;
+    color: #666;
+}
+
+.card {
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+h2 {
+    margin: 0 0 16px;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.data-list {
+    margin: 0;
+}
+
+.data-list > div {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.6fr) 1.4fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+}
+
+.data-list dt {
+    color: #666;
+}
+
+.data-list dd {
+    margin: 0;
+}
+
+.loading-message {
+    color: #666;
+}
+
+.error-message {
+    padding: 10px 12px;
+    border-left: 3px solid #a33;
+    background: #faf6f6;
+    color: #833;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .navigation {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 10px;
+        gap: 4px;
+    }
+
+    .navigation-links {
+        gap: 16px;
+    }
+
+    .page-container {
+        margin-top: 28px;
+    }
+
+    .data-list > div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}
