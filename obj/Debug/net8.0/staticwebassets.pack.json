@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\cursos.html",
+      "PackagePath": "staticwebassets\\cursos.html"
+    },
+    {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\cursos.js",
+      "PackagePath": "staticwebassets\\js\\cursos.js"
     },
     {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\datos-personales.js",

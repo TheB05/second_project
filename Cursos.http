@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:5000
+
+### Obtener todos los cursos
+GET {{baseUrl}}/api/cursos
+Accept: application/json
+
+### Obtener un curso por ID
+GET {{baseUrl}}/api/cursos/1
+Accept: application/json
+
+### Crear un curso
+POST {{baseUrl}}/api/cursos
+Content-Type: application/json
+
+{
+  "codigo": "DIS301",
+  "nombre": "Diseño de interfaces",
+  "area": "Diseño",
+  "horas": 40,
+  "cupoMaximo": 24,
+  "fechaInicio": "2026-10-01"
+}
+
+### Actualizar un curso
+PUT {{baseUrl}}/api/cursos/1
+Content-Type: application/json
+
+{
+  "codigo": "INF101",
+  "nombre": "Introducción a la programación actualizada",
+  "area": "Informática",
+  "horas": 48,
+  "cupoMaximo": 32,
+  "fechaInicio": "2026-10-05"
+}
+
+### Eliminar un curso
+DELETE {{baseUrl}}/api/cursos/3
+
+### Error 404: curso inexistente
+GET {{baseUrl}}/api/cursos/999
+Accept: application/json

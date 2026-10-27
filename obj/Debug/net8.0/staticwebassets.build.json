@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RrOUAxwBi6pnUdZVWaO8Y5av95+mGlQUdmdTPCvaMwA=",
+  "Hash": "oltlXTTszcFf8U1ety4CdvPo11wIjcRWwb4H6GFKR6Q=",
   "Source": "second_project",
   "BasePath": "_content/second_project",
   "Mode": "Default",
@@ -36,6 +36,25 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\cursos.html",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "cursos.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cursos.html"
+    },
+    {
       "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\index.html",
       "SourceId": "second_project",
       "SourceType": "Discovered",
@@ -53,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\cursos.js",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "js/cursos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cursos.js"
     },
     {
       "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\datos-personales.js",

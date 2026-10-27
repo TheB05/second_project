@@ -1,8 +1,11 @@
+using second_project.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<ICursoService, CursoService>();
 
 var app = builder.Build();
 
