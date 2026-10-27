@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oltlXTTszcFf8U1ety4CdvPo11wIjcRWwb4H6GFKR6Q=",
+  "Hash": "TXjrq85OxFXrAdugt6EPNIKoJFxMWTIkP2Ct9wva6Rc=",
   "Source": "second_project",
   "BasePath": "_content/second_project",
   "Mode": "Default",
@@ -74,6 +74,25 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\inscripciones.html",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "inscripciones.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\inscripciones.html"
+    },
+    {
       "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\cursos.js",
       "SourceId": "second_project",
       "SourceType": "Discovered",
@@ -110,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\datos-personales.js"
+    },
+    {
+      "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\inscripciones.js",
+      "SourceId": "second_project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\",
+      "BasePath": "_content/second_project",
+      "RelativePath": "js/inscripciones.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\inscripciones.js"
     },
     {
       "Identity": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\mascotas.js",

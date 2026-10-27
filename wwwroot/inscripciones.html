@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscripciones</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/inscripciones.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="brand" href="/">Mi aplicación</a>
+            <div class="navigation-links">
+                <a href="/">Datos personales</a>
+                <a href="/mascotas.html">Mascotas</a>
+                <a href="/sumadora.html">Sumadora</a>
+                <a href="/cursos.html">Cursos</a>
+                <a class="active" href="/inscripciones.html" aria-current="page">Inscripciones</a>
+            </div>
+        </nav>
+    </header>
+    <main class="page-container">
+        <section class="intro">
+            <p class="eyebrow">API · Inscripciones</p>
+            <h1>Inscribir estudiante</h1>
+            <p>Selecciona un estudiante y un curso para registrar la inscripción.</p>
+        </section>
+        <section class="card" aria-labelledby="student-form-heading">
+            <h2 id="student-form-heading">Registrar estudiante</h2>
+            <form id="student-form">
+                <div class="form-fields">
+                    <label for="matricula">Matrícula</label>
+                    <input id="matricula" name="matricula" maxlength="20" required>
+                    <label for="student-name">Nombre</label>
+                    <input id="student-name" name="nombre" maxlength="100" required>
+                    <label for="correo">Correo</label>
+                    <input id="correo" name="correo" type="email" maxlength="254" required>
+                </div>
+                <button type="submit">Guardar estudiante</button>
+            </form>
+            <p id="student-error-message" class="error-message" role="alert" hidden></p>
+            <p id="student-status-message" class="result-message" role="status" hidden></p>
+        </section>
+        <section class="card" aria-labelledby="enrollment-form-heading">
+            <h2 id="enrollment-form-heading">Nueva inscripción</h2>
+            <form id="enrollment-form">
+                <div class="form-fields">
+                    <label for="student-select">Estudiante</label>
+                    <select id="student-select" name="estudianteId" required>
+                        <option value="">Selecciona un estudiante</option>
+                    </select>
+                    <label for="course-select">Curso</label>
+                    <select id="course-select" name="cursoId" required>
+                        <option value="">Selecciona un curso</option>
+                    </select>
+                </div>
+                <p id="capacity-message" class="loading-message" role="status">Selecciona un curso para consultar sus cupos.</p>
+                <button id="enroll-button" type="submit">Inscribir</button>
+            </form>
+            <p id="enrollment-error-message" class="error-message" role="alert" hidden></p>
+            <p id="enrollment-status-message" class="result-message" role="status" hidden></p>
+        </section>
+        <section class="card" aria-labelledby="course-students-heading">
+            <h2 id="course-students-heading">Estudiantes inscritos</h2>
+            <p id="enrolled-students-message" class="loading-message">Selecciona un curso para ver sus estudiantes inscritos.</p>
+            <ul id="enrolled-students-list" hidden></ul>
+        </section>
+    </main>
+</body>
+</html>

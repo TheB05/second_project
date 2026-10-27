@@ -6,6 +6,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ICursoService, CursoService>();
+builder.Services.AddSingleton<IEstudianteService, EstudianteService>();
+builder.Services.AddSingleton<IInscripcionService, InscripcionService>();
 
 var app = builder.Build();
 

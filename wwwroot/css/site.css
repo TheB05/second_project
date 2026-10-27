@@ -127,12 +127,22 @@ h2 {
     color: #555;
 }
 
-.form-fields input {
+.form-fields input,
+.form-fields select {
     width: 100%;
     padding: 9px 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
     font: inherit;
+}
+
+.form-fields select {
+    background: #fff;
+    color: #333;
+}
+
+.navigation-links {
+    flex-wrap: wrap;
 }
 
 .form-actions,
@@ -159,6 +169,11 @@ button {
 
 button:hover {
     background: #eee;
+}
+
+button:disabled {
+    color: #777;
+    cursor: not-allowed;
 }
 
 .result-message {

@@ -13,12 +13,20 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\inscripciones.html",
+      "PackagePath": "staticwebassets\\inscripciones.html"
+    },
+    {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\cursos.js",
       "PackagePath": "staticwebassets\\js\\cursos.js"
     },
     {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\datos-personales.js",
       "PackagePath": "staticwebassets\\js\\datos-personales.js"
+    },
+    {
+      "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\inscripciones.js",
+      "PackagePath": "staticwebassets\\js\\inscripciones.js"
     },
     {
       "Id": "D:\\ITLA\\pasantia\\second_project\\wwwroot\\js\\mascotas.js",
