@@ -1,71 +1,63 @@
+using Microsoft.EntityFrameworkCore;
+using second_project.Data;
 using second_project.Models;
 
 namespace second_project.Services;
 
-public sealed class CursoService : ICursoService
+public sealed class CursoService(AppDbContext dbContext) : ICursoService
 {
-    private readonly object _sync = new();
-    private readonly List<Curso> _cursos = [];
-    private int _siguienteId = 1;
-
     public List<Curso> ObtenerTodos()
     {
-        lock (_sync)
-        {
-            return _cursos.Select(Copiar).ToList();
-        }
+        return dbContext.Cursos
+            .AsNoTracking()
+            .OrderBy(curso => curso.Id)
+            .ToList();
     }
 
     public Curso? ObtenerPorId(int id)
     {
-        lock (_sync)
-        {
-            var curso = _cursos.Find(curso => curso.Id == id);
-            return curso is null ? null : Copiar(curso);
-        }
+        return dbContext.Cursos
+            .AsNoTracking()
+            .FirstOrDefault(curso => curso.Id == id);
     }
 
     public Curso Crear(Curso curso)
     {
-        lock (_sync)
-        {
-            var nuevoCurso = Copiar(curso);
-            nuevoCurso.Id = _siguienteId++;
-            _cursos.Add(nuevoCurso);
-            return Copiar(nuevoCurso);
-        }
+        var nuevoCurso = Copiar(curso);
+        dbContext.Cursos.Add(nuevoCurso);
+        dbContext.SaveChanges();
+        return Copiar(nuevoCurso);
     }
 
     public Curso? Actualizar(int id, Curso curso)
     {
-        lock (_sync)
+        var cursoExistente = dbContext.Cursos.Find(id);
+        if (cursoExistente is null)
         {
-            var indice = _cursos.FindIndex(cursoExistente => cursoExistente.Id == id);
-            if (indice < 0)
-            {
-                return null;
-            }
-
-            var cursoActualizado = Copiar(curso);
-            cursoActualizado.Id = id;
-            _cursos[indice] = cursoActualizado;
-            return Copiar(cursoActualizado);
+            return null;
         }
+
+        cursoExistente.Codigo = curso.Codigo;
+        cursoExistente.Nombre = curso.Nombre;
+        cursoExistente.Area = curso.Area;
+        cursoExistente.Horas = curso.Horas;
+        cursoExistente.CupoMaximo = curso.CupoMaximo;
+        cursoExistente.FechaInicio = curso.FechaInicio;
+        dbContext.SaveChanges();
+        return Copiar(cursoExistente);
     }
 
     public bool Eliminar(int id)
     {
-        lock (_sync)
+        var curso = dbContext.Cursos.Find(id);
+        if (curso is null)
         {
-            var indice = _cursos.FindIndex(curso => curso.Id == id);
-            if (indice < 0)
-            {
-                return false;
-            }
-
-            _cursos.RemoveAt(indice);
-            return true;
+            return false;
         }
+
+        dbContext.Cursos.Remove(curso);
+        dbContext.SaveChanges();
+        return true;
     }
 
     private static Curso Copiar(Curso curso) =>

@@ -2,41 +2,37 @@ using second_project.Models;
 
 namespace second_project.Services;
 
-public sealed class EstudianteService : IEstudianteService
+public sealed class EstudianteService(RegistroAcademicoStore store) : IEstudianteService
 {
-    private readonly object _sync = new();
-    private readonly List<Estudiante> _estudiantes = [];
-    private int _siguienteId = 1;
-
     public List<Estudiante> ObtenerTodos()
     {
-        lock (_sync)
+        lock (store.Sync)
         {
-            return _estudiantes.Select(Copiar).ToList();
+            return store.Estudiantes.Select(Copiar).ToList();
         }
     }
 
     public Estudiante? ObtenerPorId(int id)
     {
-        lock (_sync)
+        lock (store.Sync)
         {
-            var estudiante = _estudiantes.Find(estudiante => estudiante.Id == id);
+            var estudiante = store.Estudiantes.Find(estudiante => estudiante.Id == id);
             return estudiante is null ? null : Copiar(estudiante);
         }
     }
 
     public Estudiante Crear(CreateEstudianteRequest request)
     {
-        lock (_sync)
+        lock (store.Sync)
         {
             var estudiante = new Estudiante
             {
-                Id = _siguienteId++,
+                Id = store.SiguienteEstudianteId++,
                 Matricula = request.Matricula,
                 Nombre = request.Nombre,
                 Correo = request.Correo
             };
-            _estudiantes.Add(estudiante);
+            store.Estudiantes.Add(estudiante);
             return Copiar(estudiante);
         }
     }

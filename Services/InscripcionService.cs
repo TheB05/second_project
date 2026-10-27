@@ -4,12 +4,9 @@ namespace second_project.Services;
 
 public sealed class InscripcionService(
     ICursoService cursoService,
-    IEstudianteService estudianteService) : IInscripcionService
+    IEstudianteService estudianteService,
+    RegistroAcademicoStore store) : IInscripcionService
 {
-    private readonly object _sync = new();
-    private readonly List<Inscripcion> _inscripciones = [];
-    private int _siguienteId = 1;
-
     public List<Estudiante>? ObtenerEstudiantesPorCurso(int cursoId)
     {
         if (cursoService.ObtenerPorId(cursoId) is null)
@@ -17,9 +14,9 @@ public sealed class InscripcionService(
             return null;
         }
 
-        lock (_sync)
+        lock (store.Sync)
         {
-            var estudiantesIds = _inscripciones
+            var estudiantesIds = store.Inscripciones
                 .Where(inscripcion => inscripcion.CursoId == cursoId)
                 .Select(inscripcion => inscripcion.EstudianteId)
                 .ToHashSet();
@@ -34,7 +31,7 @@ public sealed class InscripcionService(
         int estudianteId,
         int cursoId)
     {
-        lock (_sync)
+        lock (store.Sync)
         {
             var curso = cursoService.ObtenerPorId(cursoId);
             if (curso is null)
@@ -47,14 +44,14 @@ public sealed class InscripcionService(
                 return (null, "El estudiante seleccionado no existe.", true);
             }
 
-            if (_inscripciones.Any(inscripcion =>
+            if (store.Inscripciones.Any(inscripcion =>
                     inscripcion.CursoId == cursoId &&
                     inscripcion.EstudianteId == estudianteId))
             {
                 return (null, "El estudiante ya está inscrito en este curso.", false);
             }
 
-            var cuposOcupados = _inscripciones.Count(inscripcion =>
+            var cuposOcupados = store.Inscripciones.Count(inscripcion =>
                 inscripcion.CursoId == cursoId);
             if (cuposOcupados >= curso.CupoMaximo)
             {
@@ -63,12 +60,12 @@ public sealed class InscripcionService(
 
             var inscripcion = new Inscripcion
             {
-                Id = _siguienteId++,
+                Id = store.SiguienteInscripcionId++,
                 EstudianteId = estudianteId,
                 CursoId = cursoId,
                 Fecha = DateOnly.FromDateTime(DateTime.Today)
             };
-            _inscripciones.Add(inscripcion);
+            store.Inscripciones.Add(inscripcion);
             return (Copiar(inscripcion), null, false);
         }
     }
