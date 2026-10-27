@@ -4,10 +4,6 @@
 GET {{baseUrl}}/api/cursos
 Accept: application/json
 
-### Obtener un curso por ID
-GET {{baseUrl}}/api/cursos/1
-Accept: application/json
-
 ### Crear un curso
 POST {{baseUrl}}/api/cursos
 Content-Type: application/json
@@ -20,6 +16,23 @@ Content-Type: application/json
   "cupoMaximo": 24,
   "fechaInicio": "2026-10-01"
 }
+
+### Error 400: valores fuera de rango
+POST {{baseUrl}}/api/cursos
+Content-Type: application/json
+
+{
+  "codigo": "",
+  "nombre": "Curso inválido",
+  "area": "Diseño",
+  "horas": 0,
+  "cupoMaximo": 0,
+  "fechaInicio": null
+}
+
+### Obtener el curso creado
+GET {{baseUrl}}/api/cursos/1
+Accept: application/json
 
 ### Actualizar un curso
 PUT {{baseUrl}}/api/cursos/1
@@ -34,8 +47,24 @@ Content-Type: application/json
   "fechaInicio": "2026-10-05"
 }
 
+### Error 400: actualización inválida
+PUT {{baseUrl}}/api/cursos/1
+Content-Type: application/json
+
+{
+  "codigo": "",
+  "nombre": "Curso inválido",
+  "area": "Informática",
+  "horas": 0,
+  "cupoMaximo": 0,
+  "fechaInicio": null
+}
+
 ### Eliminar un curso
-DELETE {{baseUrl}}/api/cursos/3
+DELETE {{baseUrl}}/api/cursos/1
+
+### Error 404: curso inexistente
+DELETE {{baseUrl}}/api/cursos/999
 
 ### Error 404: curso inexistente
 GET {{baseUrl}}/api/cursos/999

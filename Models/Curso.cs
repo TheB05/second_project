@@ -21,5 +21,6 @@ public sealed class Curso
     [Range(1, 10000)]
     public int CupoMaximo { get; set; }
 
-    public DateOnly FechaInicio { get; set; }
+    [Required]
+    public DateOnly? FechaInicio { get; set; }
 }

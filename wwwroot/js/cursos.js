@@ -4,6 +4,9 @@ const statusMessage = document.querySelector("#status-message");
 const tableContainer = document.querySelector("#courses-table-container");
 const tableBody = document.querySelector("#courses-table-body");
 const courseForm = document.querySelector("#course-form");
+const submitCourseButton = document.querySelector("#submit-course-button");
+const cancelEditButton = document.querySelector("#cancel-edit-button");
+let editingCourseId = null;
 
 function showError(message) {
     errorMessage.textContent = message;
@@ -19,6 +22,15 @@ function showStatus(message) {
 
 function renderCourses(courses) {
     tableBody.replaceChildren();
+
+    if (courses.length === 0) {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+        cell.colSpan = 8;
+        cell.textContent = "Todavía no hay cursos registrados.";
+        row.append(cell);
+        tableBody.append(row);
+    }
 
     for (const course of courses) {
         const row = document.createElement("tr");
@@ -38,17 +50,64 @@ function renderCourses(courses) {
         }
 
         const actionCell = document.createElement("td");
+        actionCell.className = "table-actions";
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.textContent = "Editar";
+        editButton.setAttribute("aria-label", `Editar curso ${course.nombre}`);
+        editButton.addEventListener("click", () => editCourse(course));
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
         deleteButton.textContent = "Eliminar";
         deleteButton.setAttribute("aria-label", `Eliminar curso ${course.nombre}`);
         deleteButton.addEventListener("click", () => deleteCourse(course.id));
+        actionCell.append(editButton);
         actionCell.append(deleteButton);
         row.append(actionCell);
         tableBody.append(row);
     }
 
     tableContainer.hidden = false;
+}
+
+function editCourse(course) {
+    editingCourseId = course.id;
+    courseForm.elements.namedItem("codigo").value = course.codigo;
+    courseForm.elements.namedItem("nombre").value = course.nombre;
+    courseForm.elements.namedItem("area").value = course.area;
+    courseForm.elements.namedItem("horas").value = course.horas;
+    courseForm.elements.namedItem("cupoMaximo").value = course.cupoMaximo;
+    courseForm.elements.namedItem("fechaInicio").value = course.fechaInicio;
+    submitCourseButton.textContent = "Guardar cambios";
+    cancelEditButton.hidden = false;
+    courseForm.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function resetCourseForm() {
+    courseForm.reset();
+    editingCourseId = null;
+    submitCourseButton.textContent = "Crear curso";
+    cancelEditButton.hidden = true;
+}
+
+async function getApiError(response, fallback) {
+    if (response.status === 404) {
+        return "El curso no existe o ya fue eliminado.";
+    }
+
+    if (response.status === 400) {
+        try {
+            const problem = await response.json();
+            const validationErrors = Object.values(problem.errors ?? {}).flat();
+            return validationErrors.length > 0
+                ? validationErrors.join(" ")
+                : "Revisa los datos ingresados e inténtalo de nuevo.";
+        } catch {
+            return "Revisa los datos ingresados e inténtalo de nuevo.";
+        }
+    }
+
+    return fallback;
 }
 
 async function loadCourses() {
@@ -78,32 +137,32 @@ async function createCourse(event) {
     statusMessage.hidden = true;
 
     const formData = new FormData(courseForm);
-    const course = {
-        codigo: formData.get("codigo"),
-        nombre: formData.get("nombre"),
-        area: formData.get("area"),
-        horas: Number(formData.get("horas")),
-        cupoMaximo: Number(formData.get("cupoMaximo")),
-        fechaInicio: formData.get("fechaInicio")
-    };
+    const course = Object.fromEntries(formData.entries());
+    course.horas = Number(course.horas);
+    course.cupoMaximo = Number(course.cupoMaximo);
 
     try {
-        const response = await fetch("/api/cursos", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(course)
-        });
+        const isEditing = editingCourseId !== null;
+        const response = await fetch(
+            isEditing ? `/api/cursos/${editingCourseId}` : "/api/cursos",
+            {
+                method: isEditing ? "PUT" : "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(course)
+            }
+        );
 
         if (!response.ok) {
-            throw new Error(`La API respondió con el estado ${response.status}.`);
+            showError(await getApiError(response, "No se pudo guardar el curso. Inténtalo de nuevo."));
+            return;
         }
 
-        courseForm.reset();
+        resetCourseForm();
         if (await loadCourses()) {
-            showStatus("El curso se creó correctamente.");
+            showStatus(isEditing ? "El curso se actualizó correctamente." : "El curso se creó correctamente.");
         }
     } catch (error) {
-        showError("No se pudo crear el curso. Revisa los datos e inténtalo de nuevo.");
+        showError("No se pudo guardar el curso. Comprueba la conexión e inténtalo de nuevo.");
     }
 }
 
@@ -115,7 +174,8 @@ async function deleteCourse(id) {
         const response = await fetch(`/api/cursos/${id}`, { method: "DELETE" });
 
         if (!response.ok) {
-            throw new Error(`La API respondió con el estado ${response.status}.`);
+            showError(await getApiError(response, "No se pudo eliminar el curso. Inténtalo de nuevo."));
+            return;
         }
 
         if (await loadCourses()) {
@@ -127,4 +187,5 @@ async function deleteCourse(id) {
 }
 
 courseForm.addEventListener("submit", createCourse);
+cancelEditButton.addEventListener("click", resetCourseForm);
 loadCourses();

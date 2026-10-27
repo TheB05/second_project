@@ -135,6 +135,17 @@ h2 {
     font: inherit;
 }
 
+.form-actions,
+.table-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.table-actions button {
+    margin-top: 0;
+}
+
 button {
     margin-top: 18px;
     padding: 9px 16px;

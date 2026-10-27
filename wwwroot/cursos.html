@@ -23,7 +23,7 @@
         <section class="intro">
             <p class="eyebrow">API · Cursos</p>
             <h1>Administrar cursos</h1>
-            <p>Consulta, crea y elimina cursos de la institución.</p>
+            <p>Consulta, crea, edita y elimina cursos de la institución.</p>
         </section>
         <section class="card" aria-labelledby="create-course-heading">
             <h2 id="create-course-heading">Crear curso</h2>
@@ -42,7 +42,10 @@
                     <label for="fecha-inicio">Fecha de inicio</label>
                     <input id="fecha-inicio" name="fechaInicio" type="date" required>
                 </div>
-                <button type="submit">Crear curso</button>
+                <div class="form-actions">
+                    <button id="submit-course-button" type="submit">Crear curso</button>
+                    <button id="cancel-edit-button" type="button" hidden>Cancelar edición</button>
+                </div>
             </form>
             <p id="error-message" class="error-message" role="alert" hidden></p>
             <p id="status-message" class="result-message" role="status" hidden></p>

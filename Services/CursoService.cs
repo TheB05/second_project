@@ -5,40 +5,8 @@ namespace second_project.Services;
 public sealed class CursoService : ICursoService
 {
     private readonly object _sync = new();
-    private readonly List<Curso> _cursos =
-    [
-        new()
-        {
-            Id = 1,
-            Codigo = "INF101",
-            Nombre = "Introducción a la programación",
-            Area = "Informática",
-            Horas = 40,
-            CupoMaximo = 30,
-            FechaInicio = new DateOnly(2026, 9, 1)
-        },
-        new()
-        {
-            Id = 2,
-            Codigo = "MAT201",
-            Nombre = "Matemática aplicada",
-            Area = "Matemáticas",
-            Horas = 32,
-            CupoMaximo = 25,
-            FechaInicio = new DateOnly(2026, 9, 8)
-        },
-        new()
-        {
-            Id = 3,
-            Codigo = "ADM110",
-            Nombre = "Administración general",
-            Area = "Administración",
-            Horas = 36,
-            CupoMaximo = 28,
-            FechaInicio = new DateOnly(2026, 9, 15)
-        }
-    ];
-    private int _siguienteId = 4;
+    private readonly List<Curso> _cursos = [];
+    private int _siguienteId = 1;
 
     public List<Curso> ObtenerTodos()
     {
